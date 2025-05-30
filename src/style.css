@@ -1,0 +1,206 @@
+:root {
+  --color-primary: #3466F6;
+  --color-primary-light: #5686F8;
+  --color-secondary: #34D399;
+  --color-accent: #F97316;
+  --color-danger: #EF4444;
+  --color-background: #FFFFFF;
+  --color-text: #1F2937;
+  --color-text-light: #6B7280;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --radius: 0.5rem;
+  --spacing-base: 8px;
+  
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: var(--color-text);
+  background-color: var(--color-background);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: calc(var(--spacing-base) * 4);
+  color: var(--color-text);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: calc(var(--spacing-base) * 4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  background-color: var(--color-background);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: calc(var(--spacing-base) * 4);
+  margin-bottom: calc(var(--spacing-base) * 4);
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Todo app styles */
+.todo-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.todo-input-container {
+  margin-bottom: calc(var(--spacing-base) * 3);
+}
+
+.todo-form {
+  display: flex;
+  gap: calc(var(--spacing-base));
+}
+
+.todo-input {
+  flex: 1;
+  padding: calc(var(--spacing-base) * 1.5);
+  border-radius: var(--radius);
+  border: 1px solid #e2e8f0;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.todo-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.todo-add {
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  padding: calc(var(--spacing-base) * 1.5) calc(var(--spacing-base) * 3);
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--color-primary);
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.todo-add:hover {
+  background-color: var(--color-primary-light);
+  transform: translateY(-2px);
+}
+
+.todo-add:active {
+  transform: translateY(0);
+}
+
+.todo-list-container {
+  min-height: 200px;
+}
+
+.empty-message {
+  color: var(--color-text-light);
+  font-style: italic;
+  text-align: center;
+  margin: calc(var(--spacing-base) * 4) 0;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: calc(var(--spacing-base) * 1.5);
+  border-bottom: 1px solid #e2e8f0;
+  animation: fadeIn 0.3s ease;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.todo-checkbox {
+  margin-right: calc(var(--spacing-base) * 1.5);
+  height: 18px;
+  width: 18px;
+  cursor: pointer;
+}
+
+.todo-text {
+  flex: 1;
+  text-align: left;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.todo-text.completed {
+  text-decoration: line-through;
+  color: var(--color-text-light);
+}
+
+.todo-delete {
+  background: none;
+  border: none;
+  color: var(--color-danger);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: calc(var(--spacing-base) * 0.5);
+  border-radius: var(--radius);
+  margin-left: calc(var(--spacing-base));
+  transition: all 0.2s ease;
+}
+
+.todo-delete:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+  transform: scale(1.1);
+}
+
+button.danger {
+  background-color: var(--color-danger);
+}
+
+.footer {
+  color: var(--color-text-light);
+  font-size: 0.875rem;
+  margin-top: calc(var(--spacing-base) * 2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
